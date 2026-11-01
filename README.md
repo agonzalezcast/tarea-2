@@ -22,7 +22,7 @@ Tarea 2 del curso SOFT-12 — Estantería Común — interfaces interactivas con
  
 | # | Fecha      | Hash    |                         Mensaje                       | Zona   | Cambio        |
 |---|------------|---------|-------------------------------------------------------|--------|---------------|
-
+| 1 | 2026-10-30 | 5a5cfed | Crear estructura de la tarea 2 y documentación inicial | Global | Carpetas |
 
 
 
