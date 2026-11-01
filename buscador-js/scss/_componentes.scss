@@ -1,0 +1,20 @@
+
+@use "mixins" as *;
+
+.navbar {
+    .navbar-brand {
+        font-weight: bold;
+        letter-spacing: 0.03rem;
+    }
+}
+
+.card {
+    @include sombra-suave;
+    @include transicion-suave;
+}
+
+footer {
+    p {
+        font-size: 0.9rem;
+    }
+}

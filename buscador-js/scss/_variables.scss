@@ -1,0 +1,18 @@
+
+$color-principal: #355c7d;
+$color-secundario: #6c8ead;
+$color-fondo: #f5f7fa;
+$color-texto: #253447;
+
+$fuente-principal: Arial, Helvetica, sans-serif;
+
+$radio-bordes: 0.75rem;
+
+// Personalización de variables originales de Bootstrap
+$primary: $color-principal;
+$secondary: $color-secundario;
+$body-bg: $color-fondo;
+$body-color: $color-texto;
+$font-family-base: $fuente-principal;
+$border-radius: $radio-bordes;
+$border-radius-lg: 1rem;

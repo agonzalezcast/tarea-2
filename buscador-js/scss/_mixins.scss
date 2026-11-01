@@ -1,0 +1,8 @@
+
+@mixin sombra-suave {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@mixin transicion-suave {
+    transition: all 0.3s ease;
+}
