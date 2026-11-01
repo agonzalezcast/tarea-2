@@ -12041,5 +12041,33 @@ footer p {
     white-space: nowrap;
   }
 }
+/* Autores dinámicos del formulario */
+#contenedorAutores {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.campo-autor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.campo-autor .eliminar-autor {
+  align-self: flex-start;
+}
+
+@media (min-width: 576px) {
+  .campo-autor {
+    flex-direction: row;
+    align-items: center;
+  }
+  .campo-autor input {
+    flex: 1;
+  }
+  .campo-autor .eliminar-autor {
+    align-self: auto;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */

@@ -1,5 +1,6 @@
 import { buscarLibros } from "./api.js";
 import { mostrarCargando, mostrarError, mostrarVacio, mostrarResultados } from './render.js';
+import './propuestas.js';
 
 // ── Búsqueda (GET) ── 
 
