@@ -1,3 +1,5 @@
+import { agregarLibro } from './lista-lectura.js';
+
 const zonaResultados = document.getElementById('resultados')
 const mensajeBusqueda = document.getElementById('mensajeBusqueda')
 
@@ -40,6 +42,7 @@ function crearTarjeta(libro) {
 
     const acciones = crear('div', 'acciones-libro');
 
+    // Botón para ver detalles
     const botonDetalles = crear('button', 'btn btn-primary', 'Ver detalles');
 
     botonDetalles.type = 'button';
@@ -48,14 +51,23 @@ function crearTarjeta(libro) {
         mostrarDetalles(libro);
     });
 
-    acciones.append(botonDetalles);
+    // Botón para agregar a la lista de lectura
+    const botonAgregar = crear('button', 'btn btn-outline-primary', 'Agregar a mi lista');
+
+    botonAgregar.type = 'button';
+
+    botonAgregar.addEventListener('click', () => {
+        agregarLibro(libro);
+    });
+
+    acciones.append(botonDetalles, botonAgregar);
     contenido.append(titulo, autor, publicacion, acciones);
     tarjeta.append(portada, contenido);
 
     return tarjeta;
 }
 
-function mostrarDetalles(libro){
+function mostrarDetalles(libro) {
     const contenidoModal = document.getElementById('modalLibroContenido');
     const tituloModal = document.getElementById('modalLibroTitulo');
 
@@ -75,7 +87,7 @@ function mostrarDetalles(libro){
     //Autores
     const autores = libro.author_name && libro.author_name.length > 0 ? libro.author_name.join(', ') : 'Autor desconocido';
 
-    const autor = crear('p', '', 'Autores: '+ autores);
+    const autor = crear('p', '', 'Autores: ' + autores);
 
     //Año
     const anio = libro.first_publish_year ? libro.first_publish_year : 'Año desconocido';
