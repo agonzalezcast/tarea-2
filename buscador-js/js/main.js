@@ -1,29 +1,29 @@
 import { buscarLibros } from "./api.js";
+import { mostrarCargando, mostrarError, mostrarVacio, mostrarResultados } from './render.js';
 
 // ── Búsqueda (GET) ── 
 
 const formBusqueda = document.getElementById('formBusqueda')
 const campoBusqueda = document.getElementById('textoBusqueda')
-const mensajeBusqueda = document.getElementById('mensajeBusqueda')
 
 formBusqueda.addEventListener('submit', async (event) => {
     event.preventDefault()
     const texto = campoBusqueda.value.trim()
     if (texto === '') return
 
-    mensajeBusqueda.textContent = 'Buscando libros...';
+    mostrarCargando();
 
     try{
         const libros = await buscarLibros(texto)
 
         console.log('Libros encontrados: ', libros)
         if (libros.length === 0){
-            mensajeBusqueda.textContent = 'No se encontraron libros';
+            mostrarVacio();
         } else {
-            mensajeBusqueda.textContent = 'Se encotraron ' + libros.length + ' libros.';
+            mostrarResultados(libros);
         }
     } catch (error) {
         console.error(error);
-        mensajeBusqueda.textContent = 'No se pudo completar la búsqueda. Revise su conexión e intente de nuevo.';
+        mostrarError();
     }
 })
