@@ -30,12 +30,6 @@ function crearTarjeta(libro) {
 
     const titulo = crear('h3', 'card-title titulo-libro', libro.title);
 
-    // let autores = 'Autor desconocido';
-
-    // if(libro.author_name && libro.author_name.length > 0) {
-    //     autores = libro.author_name.join(', ');
-    // }
-
     const autores = libro.author_name && libro.author_name.length > 0 ? libro.author_name.join(', ') : 'Autor desconocido';
 
     const autor = crear('p', 'card-text autor-libro', autores);
@@ -44,10 +38,68 @@ function crearTarjeta(libro) {
 
     const publicacion = crear('p', 'card-text', 'Primera publicación: ' + anio);
 
-    contenido.append(titulo, autor, publicacion);
+    const acciones = crear('div', 'acciones-libro');
+
+    const botonDetalles = crear('button', 'btn btn-primary', 'Ver detalles');
+
+    botonDetalles.type = 'button';
+
+    botonDetalles.addEventListener('click', () => {
+        mostrarDetalles(libro);
+    });
+
+    acciones.append(botonDetalles);
+    contenido.append(titulo, autor, publicacion, acciones);
     tarjeta.append(portada, contenido);
 
     return tarjeta;
+}
+
+function mostrarDetalles(libro){
+    const contenidoModal = document.getElementById('modalLibroContenido');
+    const tituloModal = document.getElementById('modalLibroTitulo');
+
+    tituloModal.textContent = libro.title;
+
+    const portada = crear('img', 'img-fluid rounded mb-3');
+
+    if (libro.cover_i) {
+        portada.src = 'https://covers.openlibrary.org/b/id/' + libro.cover_i + '-M.jpg';
+    } else {
+        portada.src = './img/sin-imagen.svg';
+    }
+
+    portada.alt = 'Portada de ' + libro.title;
+
+
+    //Autores
+    const autores = libro.author_name && libro.author_name.length > 0 ? libro.author_name.join(', ') : 'Autor desconocido';
+
+    const autor = crear('p', '', 'Autores: '+ autores);
+
+    //Año
+    const anio = libro.first_publish_year ? libro.first_publish_year : 'Año desconocido';
+
+    const publicacion = crear('p', '', 'Primera publicación: ' + anio);
+
+    //Ediciones
+    const ediciones = libro.edition_count ? libro.edition_count : 'No disponible';
+
+    const cantidadEdiciones = crear('p', '', 'Cantidad de ediciones: ' + ediciones);
+
+    //Idiomas
+    const idiomas = libro.language && libro.language.length > 0 ? libro.language.join(', ') : 'No disponible';
+
+    const idioma = crear('p', '', 'Idiomas: ' + idiomas);
+
+    contenidoModal.replaceChildren(portada, autor, publicacion, cantidadEdiciones, idioma);
+
+
+    // Abrir el modal de Bootstrap
+    const elementoModal = document.getElementById('modalLibro');
+    const modal = bootstrap.Modal.getOrCreateInstance(elementoModal);
+
+    modal.show();
 }
 
 // Estado: cargando
