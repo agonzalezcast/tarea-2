@@ -29,7 +29,18 @@ export function agregarLibro(libro) {
 
     librosSeleccionados.push(nuevoLibro);
 
-    mostrarLista()
+    const fila = crearFila(nuevoLibro);
+
+    // Agregar la fila con su estado inicial
+    fila.classList.add('libro-entrando');
+    listaLecturas.append(fila);
+
+    // Activar la transición cuando el navegador dibuje la fila
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            fila.classList.remove('libro-entrando');
+        });
+    });
 }
 
 // Crear una fila de la tabla
@@ -54,10 +65,11 @@ function crearFila(libro) {
 
     // Acciones
     const celdaAcciones = document.createElement('td');
+    celdaAcciones.className = 'acciones-lectura';
 
     const botonEstado = document.createElement('button');
     botonEstado.type = 'button';
-    botonEstado.className = 'btn btn-outline-primary btn-sm me-2 btn-cambiar';
+    botonEstado.className = 'btn btn-outline-primary btn-sm btn-cambiar';
     botonEstado.textContent = 'Cambiar estado';
 
     const botonEliminar = document.createElement('button');
@@ -65,7 +77,11 @@ function crearFila(libro) {
     botonEliminar.className = 'btn btn-outline-danger btn-sm btn-eliminar';
     botonEliminar.textContent = 'Eliminar';
 
-    celdaAcciones.append(botonEstado, botonEliminar);
+    const contenedorBotones = document.createElement('div');
+    contenedorBotones.className = 'botones-lectura';
+
+    contenedorBotones.append(botonEstado, botonEliminar);
+    celdaAcciones.append(contenedorBotones);
 
     fila.append(celdaTitulo, celdaAutor, celdaEstado, celdaAcciones);
 
@@ -83,16 +99,54 @@ function cambiarEstado(key) {
         libro.key === key ? { ...libro, estado: siguienteEstado(libro.estado) } : libro
     );
 
-    mostrarLista();
+    const libroActualizado = librosSeleccionados.find(
+        (libro) => libro.key === key
+    );
+
+    const fila = Array.from(listaLecturas.children).find(
+        (elemento) => elemento.dataset.key === key
+    );
+
+    if (!libroActualizado || !fila) {
+        return;
+    }
+
+    const insignia = fila.querySelector('.badge');
+
+    insignia.textContent = libroActualizado.estado;
+    insignia.className =
+        'badge ' + claseEstado(libroActualizado.estado);
+
+    // Reiniciar y activar la animación
+    insignia.classList.remove('estado-animado');
+    void insignia.offsetWidth;
+    insignia.classList.add('estado-animado');
 }
 
 // Eliminar un libro de la lista
 function eliminarLibro(key) {
+    const fila = Array.from(listaLecturas.children).find(
+        (elemento) => elemento.dataset.key === key
+    );
+
+    if (!fila || fila.classList.contains('libro-saliendo')) {
+        return;
+    }
+
+    // Actualizar el arreglo
     librosSeleccionados = librosSeleccionados.filter(
         (libro) => libro.key !== key
     );
 
-    mostrarLista();
+    // Activar la transición de salida
+    fila.classList.add('libro-saliendo');
+
+    // Eliminar la fila cuando termina la transición
+    fila.addEventListener('transitionend', (event) => {
+        if (event.target === fila && event.propertyName === 'opacity') {
+            fila.remove();
+        }
+    });
 }
 
 // Delegación de eventos

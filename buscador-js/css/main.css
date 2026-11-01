@@ -11975,5 +11975,71 @@ footer p {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+/* Animaciones de la lista de lectura */
+#listaLecturas tr {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+#listaLecturas .libro-entrando {
+  opacity: 0;
+  transform: translateY(12px);
+}
+#listaLecturas .libro-saliendo {
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+}
+#listaLecturas .estado-animado {
+  animation: cambio-estado 0.4s ease;
+}
+
+@keyframes cambio-estado {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* Colores de los estados de lectura */
+.estado-pendiente {
+  --bs-badge-color: #fff;
+  background-color: #6c757d;
+}
+
+.estado-leyendo {
+  --bs-badge-color: #fff;
+  background-color: #0d6efd;
+}
+
+.estado-leído {
+  --bs-badge-color: #fff;
+  background-color: #198754;
+}
+
+/* Botones de la lista de lectura */
+.botones-lectura {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.botones-lectura button {
+  width: 100%;
+  white-space: normal;
+}
+
+@media (min-width: 992px) {
+  .botones-lectura {
+    flex-direction: row;
+  }
+  .botones-lectura button {
+    width: auto;
+    white-space: nowrap;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
