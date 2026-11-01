@@ -28,4 +28,5 @@ Tarea 2 del curso SOFT-12 — Estantería Común — interfaces interactivas con
 | 4 | 2026-11-01 | 1a2e4b3 | Implementar diseño adaptable con CSS Grid/flexbox y sass | Buscador-js | Archivos scss |
 | 5 | 2026-11-01 | 537a58c | Implementación de busqueda de libros con Open Library | Buscador-js | api.js y main.js |
 | 6 | 2026-11-01 | a8b8185 | Renderizado de tarjetas de libros dinámicamente | Buscador-js | render.js y main.js |
-| 7 | 2026-11-01 | 736cea4 | Implementación del modal de detalles de libros | Buscador-js | lista-lectura.js y render.js |
+| 7 | 2026-11-01 | 736cea4 | Implementación del modal de detalles de libros | Buscador-js | render.js y main.js |
+| 8 | 2026-11-01 | 2c4de06 | Agregar libros a lista de lectura | Buscador-js | lista-lectura.js y render.js |
