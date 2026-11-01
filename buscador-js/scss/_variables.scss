@@ -16,3 +16,9 @@ $body-color: $color-texto;
 $font-family-base: $fuente-principal;
 $border-radius: $radio-bordes;
 $border-radius-lg: 1rem;
+
+
+// Función
+@function espacio($multiplicador) {
+    @return $multiplicador * 0.5rem;
+}

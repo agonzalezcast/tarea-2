@@ -1,20 +1,158 @@
-
 @use "mixins" as *;
+
+@import "variables";
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+:root {
+    --color-superficie: #ffffff;
+    --color-borde: #dce3ea;
+    --espacio-tarjetas: 1.5rem;
+}
+
+// Estilos generales
+
+body {
+    min-height: 100vh;
+}
+
+section {
+    scroll-margin-top: 2rem;
+}
+
+h1, h2 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+// Barra de navegación
 
 .navbar {
     .navbar-brand {
         font-weight: bold;
         letter-spacing: 0.03rem;
     }
+
+    .nav-link {
+        @include transicion-suave;
+
+        &:hover {
+            opacity: 0.75;
+        }
+    }
 }
 
-.card {
+// Contenedor de resultados con CSS Grid
+
+.grid-libros {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espacio-tarjetas);
+    margin-top: 1.5rem;
+}
+
+// Tarjetas de libros
+
+.tarjeta-libro {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: 0.75rem;
+    overflow: hidden;
+
     @include sombra-suave;
     @include transicion-suave;
+
+    &:hover {
+        transform: translateY(-0.25rem);
+    }
+
+    .portada-libro {
+        width: 100%;
+        height: 15rem;
+        object-fit: contain;
+        padding: 1rem;
+        background-color: #f0f3f6;
+    }
+
+    .contenido-libro {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 1.25rem;
+    }
+
+    .titulo-libro {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .autor-libro {
+        color: #596777;
+        font-size: 0.9rem;
+    }
+
+    .acciones-libro {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: auto;
+        padding-top: 1rem;
+    }
 }
+
+// Formulario
+
+#formPropuesta {
+    background-color: var(--color-superficie);
+    padding: espacio(3);
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-borde);
+
+    @include sombra-suave;
+}
+
+// Tabla
+
+.table-responsive {
+    border-radius: 0.75rem;
+    overflow-x: auto;
+}
+
+// Footer
 
 footer {
     p {
         font-size: 0.9rem;
+    }
+}
+
+// Tablets
+
+@media (min-width: 576px) {
+    .grid-libros {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+// Computadoras
+
+@media (min-width: 992px) {
+    .grid-libros {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #formPropuesta {
+        padding: espacio(4);
+    }
+}
+
+// Pantallas grandes
+
+@media (min-width: 1200px) {
+    .grid-libros {
+        grid-template-columns: repeat(4, 1fr);
     }
 }

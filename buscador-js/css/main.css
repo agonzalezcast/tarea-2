@@ -11859,18 +11859,121 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+:root {
+  --color-superficie: #ffffff;
+  --color-borde: #dce3ea;
+  --espacio-tarjetas: 1.5rem;
+}
+
+body {
+  min-height: 100vh;
+}
+
+section {
+  scroll-margin-top: 2rem;
+}
+
+h1, .h1, h2, .h2 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
 .navbar .navbar-brand {
   font-weight: bold;
   letter-spacing: 0.03rem;
 }
+.navbar .nav-link {
+  transition: all 0.3s ease;
+}
+.navbar .nav-link:hover {
+  opacity: 0.75;
+}
 
-.card {
+.grid-libros {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-tarjetas);
+  margin-top: 1.5rem;
+}
+
+.tarjeta-libro {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: 0.75rem;
+  overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
+}
+.tarjeta-libro:hover {
+  transform: translateY(-0.25rem);
+}
+.tarjeta-libro .portada-libro {
+  width: 100%;
+  height: 15rem;
+  object-fit: contain;
+  padding: 1rem;
+  background-color: #f0f3f6;
+}
+.tarjeta-libro .contenido-libro {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem;
+}
+.tarjeta-libro .titulo-libro {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.tarjeta-libro .autor-libro {
+  color: #596777;
+  font-size: 0.9rem;
+}
+.tarjeta-libro .acciones-libro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+#formPropuesta {
+  background-color: var(--color-superficie);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-borde);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.table-responsive {
+  border-radius: 0.75rem;
+  overflow-x: auto;
 }
 
 footer p {
   font-size: 0.9rem;
+}
+
+@media (min-width: 576px) {
+  .grid-libros {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .grid-libros {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #formPropuesta {
+    padding: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .grid-libros {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,8 +1,2 @@
 
-@import "variables";
-
-// Bootstrap instalado mediante npm
-@import "../node_modules/bootstrap/scss/bootstrap";
-
-// Estilos propios
-@import "componentes";
+@use 'componentes';
