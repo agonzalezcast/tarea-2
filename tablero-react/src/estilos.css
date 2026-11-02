@@ -1,0 +1,83 @@
+
+/* Colores principales de Estantería Común */
+:root {
+  --color-principal: #355c7d;
+  --color-secundario: #6c8ead;
+  --color-fondo: #f5f7fa;
+  --color-texto: #253447;
+
+  /* Personalización de Bootstrap */
+  --bs-primary: #355c7d;
+  --bs-secondary: #6c8ead;
+  --bs-body-bg: #f5f7fa;
+  --bs-body-color: #253447;
+}
+
+/* Estilos generales */
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Barra de navegación */
+.navbar.bg-primary {
+  background-color: var(--color-principal) !important;
+}
+
+/* Botones principales */
+.btn-primary {
+  --bs-btn-bg: #355c7d;
+  --bs-btn-border-color: #355c7d;
+  --bs-btn-hover-bg: #294963;
+  --bs-btn-hover-border-color: #294963;
+  --bs-btn-active-bg: #223d53;
+  --bs-btn-active-border-color: #223d53;
+  --bs-btn-disabled-bg: #355c7d;
+  --bs-btn-disabled-border-color: #355c7d;
+}
+
+/* Tarjetas */
+.card {
+  border-color: #dce3ea;
+  border-radius: 0.75rem;
+}
+
+.tarjeta-libro {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-libro:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(37, 52, 71, 0.12);
+}
+
+/* Estados de lectura */
+.estado-pendiente {
+  background-color: #6c757d;
+  color: white;
+}
+
+.estado-leyendo {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.estado-leído {
+  background-color: #198754;
+  color: white;
+}
+
+/* Resumen */
+.resumen-numero {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-principal);
+}
+
+/* Formularios y filtros */
+.form-select:focus,
+.form-control:focus {
+  border-color: var(--color-secundario);
+  box-shadow: 0 0 0 0.25rem rgba(53, 92, 125, 0.2);
+}

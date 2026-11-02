@@ -35,3 +35,4 @@ Tarea 2 del curso SOFT-12 — Estantería Común — interfaces interactivas con
 | 11 | 2026-11-01 | a9e86a8 | Implementación del formulario de propuestas con autores dinámicos | Buscador-js | Archivos js y scss |
 | 12 | 2026-11-01 | 760d220 | Validación de campos y envío de propuestas con fetch | Buscador-js | Archivos js y scss |
 | 13 | 2026-11-01 | 024d36a | Creación de componentes y listado básico de libros en React | tablero-react | archivos jsx y css |
+| 14 | 2026-11-01 | 980cdc0 | Administración de estados y eliminación de libros con useState | tablero-react | archivos jsx y css |

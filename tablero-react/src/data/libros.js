@@ -1,3 +1,7 @@
+export const ESTADOS = ['Pendiente', 'Leyendo', 'Leído']
+
+export const MIEMBROS = ['Ana', 'Carlos', 'María']
+
 
 export const librosIniciales = [
     {
