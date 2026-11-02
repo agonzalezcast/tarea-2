@@ -8,6 +8,7 @@ import Panel from './componentes/comunes/Panel.jsx'
 import ListaLibros from './componentes/libros/ListaLibros.jsx'
 import ResumenLibros from './componentes/resumen/ResumenLibros.jsx'
 import FiltrosLibros from './componentes/filtros/FiltrosLibros.jsx'
+import FormularioLibro from './componentes/formulario/FormularioLibro.jsx'
 
 function App() {
   const [libros, setLibros] = useState(librosIniciales)
@@ -27,6 +28,12 @@ function App() {
     estado: estado,
     cantidad: libros.filter((libro) => libro.estado === estado).length,
   }))
+
+
+  function agregar(datos) {
+    const nuevo = { ...datos, id: Date.now(), estado: 'Pendiente', propuestoPor: datos.miembro }
+    setLibros([...libros, nuevo])
+  }
 
   // Cambiar al siguiente estado
   function avanzar(id) {
@@ -56,13 +63,16 @@ function App() {
           </Panel>
 
           <Panel titulo={`Libros del club (${visibles.length})`}>
-            <ListaLibros libros={visibles} onAvanzar={avanzar} onQuitar={quitar}/>
+            <ListaLibros libros={visibles} onAvanzar={avanzar} onQuitar={quitar} />
           </Panel>
         </div>
 
         <div className="col-lg-4">
           <Panel titulo="Resumen">
             <ResumenLibros conteos={conteos} />
+          </Panel>
+          <Panel titulo="Agregar un Libro">
+            <FormularioLibro onAgregar={agregar} />
           </Panel>
         </div>
       </div>
