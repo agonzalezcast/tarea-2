@@ -102,7 +102,7 @@
             <h2>Proponer una lectura</h2>
             <p>Propón un libro para la próxima sesión del club.</p>
 
-            <form id="formPropuesta" class="row g-3">
+            <form id="formPropuesta" class="row g-3" novalidate>
 
                 <!-- Título -->
                 <div class="mb-3">
@@ -116,11 +116,11 @@
 
                     <div id="contenedorAutores">
                         <div class="campo-autor">
-                            <input type="text" class="form-control" name="autores[]" placeholder="Nombre del autor"
-                                aria-label="Nombre del autor 1" required>
+                            <div class="contenido-autor">
+                                <input type="text" class="form-control" name="autores[]" placeholder="Nombre del autor" aria-label="Nombre del autor 1" required>
+                            </div>
                         </div>
                     </div>
-
                     <button type="button" id="agregarAutor" class="btn btn-outline-secondary btn-sm mt-2">
                         Agregar autor
                     </button>

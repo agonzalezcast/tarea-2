@@ -12053,6 +12053,10 @@ footer p {
   flex-direction: column;
   gap: 0.5rem;
 }
+.campo-autor .contenido-autor {
+  flex: 1;
+  min-width: 0;
+}
 .campo-autor .eliminar-autor {
   align-self: flex-start;
 }
@@ -12060,13 +12064,10 @@ footer p {
 @media (min-width: 576px) {
   .campo-autor {
     flex-direction: row;
-    align-items: center;
-  }
-  .campo-autor input {
-    flex: 1;
+    align-items: flex-start;
   }
   .campo-autor .eliminar-autor {
-    align-self: auto;
+    align-self: flex-start;
   }
 }
 

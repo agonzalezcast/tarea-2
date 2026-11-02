@@ -253,6 +253,11 @@ footer {
     flex-direction: column;
     gap: 0.5rem;
 
+    .contenido-autor {
+        flex: 1;
+        min-width: 0;
+    }
+
     .eliminar-autor {
         align-self: flex-start;
     }
@@ -261,14 +266,11 @@ footer {
 @media (min-width: 576px) {
     .campo-autor {
         flex-direction: row;
-        align-items: center;
-
-        input {
-            flex: 1;
-        }
+        align-items: flex-start;
 
         .eliminar-autor {
-            align-self: auto;
+            align-self: flex-start;
         }
     }
 }
+
