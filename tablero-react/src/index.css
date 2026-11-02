@@ -101,3 +101,12 @@ main {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+.mensaje-vacio {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #b6d4fe;
+    border-radius: 0.5rem;
+    background-color: #cfe2ff;
+    color: #084298;
+}

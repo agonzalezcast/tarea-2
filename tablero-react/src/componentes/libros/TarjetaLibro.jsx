@@ -1,4 +1,4 @@
-function TarjetaLibro({ libro }) {
+function TarjetaLibro({ libro, onCambiarEstado, onQuitar }) {
     return (
         <article className="tarjeta-libro">
             <h3>{libro.titulo}</h3>
@@ -16,11 +16,11 @@ function TarjetaLibro({ libro }) {
             </p>
 
             <div className="acciones-libro">
-                <button type="button" disabled>
+                <button type="button" onClick={() => onCambiarEstado(libro.id)}>
                     Cambiar estado
                 </button>
 
-                <button type="button" disabled>
+                <button type="button" onClick={() => onQuitar(libro.id)}>
                     Eliminar
                 </button>
             </div>
