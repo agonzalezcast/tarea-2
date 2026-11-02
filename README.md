@@ -33,3 +33,4 @@ Tarea 2 del curso SOFT-12 — Estantería Común — interfaces interactivas con
 | 9 | 2026-11-01 | b0ef820 | Implementación de cambiar estados y eliminar libros de la lista de lectura | Buscador-js | lista-lectura.js y estados.js |
 | 10 | 2026-11-01 | 26cb6a2 | Agregar transiciones a la lista de lectura | Buscador-js | Archivos js y scss |
 | 11 | 2026-11-01 | a9e86a8 | Implementación del formulario de propuestas con autores dinámicos | Buscador-js | Archivos js y scss |
+| 12 | 2026-11-01 | 760d220 | Validación de campos y envío de propuestas con fetch | Buscador-js | Archivos js y scss |
