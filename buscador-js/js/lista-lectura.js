@@ -1,10 +1,15 @@
 import { siguienteEstado, claseEstado } from './estados.js';
 
 const listaLecturas = document.getElementById('listaLecturas');
+const mensajeLecturas = document.getElementById('mensajeLecturas');
 
 
 // Arreglo para guardar los libros
 let librosSeleccionados = [];
+
+function actualizarMensajeLecturas() {
+    mensajeLecturas.hidden = librosSeleccionados.length > 0;
+}
 
 // Agregar un libro a la lista
 export function agregarLibro(libro) {
@@ -28,6 +33,8 @@ export function agregarLibro(libro) {
     };
 
     librosSeleccionados.push(nuevoLibro);
+
+    actualizarMensajeLecturas();
 
     const fila = crearFila(nuevoLibro);
 
@@ -137,6 +144,8 @@ function eliminarLibro(key) {
     librosSeleccionados = librosSeleccionados.filter(
         (libro) => libro.key !== key
     );
+
+    actualizarMensajeLecturas();
 
     // Activar la transición de salida
     fila.classList.add('libro-saliendo');
